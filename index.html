@@ -8,13 +8,12 @@
     <h2>Dagar kvar till sommarlov: <a id="total_days">Laddar</a></h2>
     <h2>Skoldagar kvar till sommarlov (veckor avrundade i beräkningen): ~ <a id="school_days">Laddar</a></h2>
     <script>
+      const url = "https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday";
       async function load() {
-        const requestURL = "https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday";
-        const request = new Request(requestURL);
-        const response = await fetch(request);
-        const data = await response.json();
-        $("#total_days").text(data["total_days"]);
-        $("#school_days").text(data["school_days"]);
+        $.getJSON(url, function(data) {
+          $("#total_days").text(data["total_days"]);
+          $("#school_days").text(data["school_days"]);
+        });
       };
       load();
     </script>
