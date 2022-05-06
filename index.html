@@ -10,8 +10,8 @@
     <script>
       function load() {
         $.getJSON("https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday", function(data) {
-          $("#total_days").text(data["total_days"]);
-          $("#school_days").text(data["school_days"]);
+          $("#total_days").text(data["total_days"].toString());
+          $("#school_days").text(data["school_days"].toString());
         });
       };
       load();
