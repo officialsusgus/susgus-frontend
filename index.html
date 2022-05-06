@@ -1,37 +1,203 @@
 <html>
-  <head>
-    <title>Sus Gus</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  </head>
-  <body>
-    <h1>Sus Gus</h1>
-    <h2>Dagar kvar till sommaravslutning/sommarlov: <a id="total_days">Laddar</a></h2>
-    <h2>Skoldagar kvar till sommaravslutning/sommarlov med studiedagar (veckor avrundade i beräkningen): ~ <a id="actual_school_days">Laddar</a></h2>
-    <h2>Skoldagar kvar till sommaravslutning/sommarlov (veckor avrundade i beräkningen): ~ <a id="school_days">Laddar</a></h2>
-    <h2>Totala studiedagar: ~ <a id="study_days">Laddar</a></h2>
-    <h2>Totala helgdagar: ~ <a id="weekends">Laddar</a></h2>
-    <script>
-      const url = "https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday";
-      async function load() {
-        $.getJSON(url, function(data) {
-          $("#total_days").text(data["total_days"]);
-          $("#actual_school_days").text(data["actual_school_days"]);
-          $("#school_days").text(data["school_days"]);
-          $("#study_days").text(data["study_days"]);
-          $("#weekends").text(data["weekends"] + " (" + data["weekends"] / 2 + " helger)");
-        });
-      };
-      load();
-    </script>
-    <style>
-      body {
-        background: rgb(27, 27, 27);
-      }
-      h1 {
-       color: white; 
-      }
-      h2 {
-       color: white; 
-      }
-  </body>
+    <head>
+        <title>
+            Sus Gus
+        </title>
+        <meta name="title" content="Sus Gus">
+        <meta name="description" content="Hej hej, välkommen till min fina sida!">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://thatmogus.me/instagram">
+        <meta property="og:title" content="Sus Gus">
+        <meta property="og:description" content="Hej hej, välkommen till min fina sida!">
+        <meta property="og:image" content="">
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://thatmogus.me/instagram">
+        <meta property="twitter:title" content="Sus Gus">
+        <meta property="twitter:description" content="Hej hej, välkommen till min fina sida!">
+        <meta property="twitter:image" content="">
+        <meta name="theme-color" content="#ab07a3">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/1c6b029a6d.js" crossorigin="anonymous"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="preload" as="image" href="https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg">
+        <link rel="preload" as="image" href="/code.png">
+    </head>
+    <body>
+        <p id="textblock">
+            <span>Hej hej, jag heter</span> <span id="name"><b>Sus Gus</b></span><span>!</span> <span id="emojislot" onclick="toggleEnthusiasm()"></span><br><br>
+            Även känd som <b style="color: #0075f8;">Emilio</b>.
+            <br>Jag är <b style="color: #f9df2a;">15 år</b>.
+            <br>Jag <b style="color: #0075f8;">programmerar</b> skit och sånt.
+            <br>Jag är ett stort <b style="color: #f9df2a;">fan</b> av <b style="color: #0075f8;">City Gross</b>.
+            <br>Dagar kvar till <b style="color: #f9df2a;">sommaravslutning</b>: <b id="days" style="color: #0075f8;">Laddar</b>
+            <br>
+            <br>Följ mig på <b style="color: #f9df2a;">GitHub</b>, annars är du sämst.
+            <br><br>
+            <a class="github-button" href="https://github.com/ThatMogus" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-size="large" aria-label="Följ @ThatMogus på GitHub">Följ mig på <b>GitHub</b></a>
+            <br>
+            <br><img id="susState" onclick="changeSusState()">
+            <br>
+            <br>Antal klick: <b style="color: #0075f8;"><a id="sessionclicks">Laddar klick</a></b>
+            <br>Totalt antal klick: <b style="color: #f9df2a;"><a id="totalclicks">Laddar klick</a></b>
+        </p>
+        <style>
+            body {
+                background-size: cover;
+            }
+            span {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                text-align: center;
+                color: aqua;
+                margin: 0;
+                padding: 0 0 10px 0;
+                font-size: 32px;
+                font-weight: 500;
+            }
+            p {
+                font-family: "Courier New", Courier, monospace;
+                margin: 0;
+                background: rgba(0,0,0,0.7);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                color: white;
+                padding: 15px;
+                border-radius: 15px;
+            }
+            p a, p a:visited {
+                color: aqua;
+            }
+            p a:hover {
+                color: yellow;
+            }
+            .alertSystem-top {
+                width: auto;
+                position: fixed;
+                margin-left: 18%;
+                margin-right: auto;
+                top: 10px; 
+                left:2%;
+            }
+            .alert {
+                display: none;
+            }
+        </style>
+        <script>
+            function setCookie(cname, cvalue) {
+                document.cookie = cname + "=" + cvalue + ";"
+            };
+            function getCookie(cname) {
+                let name = cname + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(";");
+                for(let i = 0; i <ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == " ") {
+                        c = c.substring(1);
+                    };
+                    if(c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    };
+                };
+                return false;
+            };
+            var kindasus = "https://cdn.discordapp.com/emojis/865333543193280522.png";
+            var susaf = "https://cdn.discordapp.com/emojis/938899403161362503.png";
+            var citygross = "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg";
+            var code = "code.png";
+            var hackcolor = "#21c210";
+            var zero = 0;
+            if(getCookie("clickcount") == false) {
+                setCookie("clickcount", zero.toString());
+            };
+            function refreshClickCounter() {
+              document.getElementById("totalclicks").text = getCookie("clickcount").toString();
+            };
+            setCookie("sessionclicks", zero.toString());
+            document.getElementById("sessionclicks").text = getCookie("sessionclicks").toString();
+            function addClick() {
+                var sessionclicks = parseInt(getCookie("sessionclicks"));
+                var sessionclicks = sessionclicks + 1;
+                setCookie("sessionclicks", sessionclicks.toString())
+                document.getElementById("sessionclicks").text = sessionclicks.toString();
+            };
+            refreshClickCounter();
+            function changeSusState() {
+                var clicks = parseInt(getCookie("clickcount"));
+                var clicks = clicks + 1;
+                setCookie("clickcount", clicks.toString());
+                addClick();
+                refreshClickCounter();
+                if(getCookie("susState") == "kindasus") {
+                    setCookie("susState", "susaf");
+                    document.getElementById("susState").src = susaf;
+                } else if(getCookie("susState") == "susaf") {
+                    setCookie("susState", "kindasus")
+                    document.getElementById("susState").src = kindasus;
+                };
+            };
+            if(getCookie("susState") == false) {
+                setCookie("susState", "kindasus")
+                document.getElementById("susState").src = kindasus;
+            } else if(getCookie("susState") == "kindasus") {
+                document.getElementById("susState").src = kindasus;
+            } else if(getCookie("susState") == "susaf") {
+                document.getElementById("susState").src = susaf;
+            };
+            function toggleEnthusiasm() {
+                if(getCookie("enthusiasm") == "citygross") {
+                    setCookie("enthusiasm", "code");
+                    document.body.style.backgroundImage = `url('${code}')`;
+                    document.getElementById("textblock").style.color = hackcolor;
+                    document.getElementById("emojislot").textContent = "🖥️";
+                } else if(getCookie("enthusiasm") == "code") {
+                    setCookie("enthusiasm", "citygross")
+                    document.body.style.backgroundImage = `url('${citygross}')`;
+                    document.getElementById("textblock").style.color = "white";
+                    document.getElementById("emojislot").textContent = "🏬";
+                };
+            };
+            if(getCookie("enthusiasm") == false) {
+                setCookie("enthusiasm", "citygross")
+                document.body.style.backgroundImage = `url('${citygross}')`;
+                document.getElementById("textblock").style.color = "white";
+                document.getElementById("emojislot").textContent = "🏬";
+            } else if(getCookie("enthusiasm") == "citygross") {
+                document.body.style.backgroundImage = `url('${citygross}')`;
+                document.getElementById("textblock").style.color = "white";
+                document.getElementById("emojislot").textContent = "🏬";
+            } else if(getCookie("enthusiasm") == "code") {
+                document.body.style.backgroundImage = `url('${code}')`;
+                document.getElementById("textblock").style.color = hackcolor;
+                document.getElementById("emojislot").textContent = "🖥️";
+            };
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+            };
+            setCookie("color", "blue");
+            function animationEngine() {
+                document.getElementById("name").style.color = getCookie("color");
+                if (getCookie("color") == "blue") {
+                    setCookie("color", "yellow");
+                } else if (getCookie("color") == "yellow") {
+                    var color = setCookie("color", "blue");
+                };
+            };
+            animationEngine();
+            setInterval(animationEngine, 500);
+            const url = "https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday";
+            async function load() {
+              $.getJSON(url, function(data) {
+                $("#days").text(data["actual_school_days"]);
+              });
+            };
+            load();
+        </script>
+    </body>
 </html>
