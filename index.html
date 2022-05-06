@@ -6,7 +6,7 @@
   <body>
     <h1>Sus Gus</h1>
     <h2>Dagar kvar till sommarlov: <a id="total_days">Laddar</a></h2>
-    <h2>Skoldagar kvar till sommarlov: <a id="school_days">Laddar</a></h2>
+    <h2>Skoldagar kvar till sommarlov (veckor avrundade i beräkningen): ~ <a id="school_days">Laddar</a></h2>
     <script>
       function load() {
         $.getJSON("https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday", function(data) {
