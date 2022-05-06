@@ -9,8 +9,10 @@
     <h2>Skoldagar kvar till sommarlov: <a id="school_days">Laddar</a></h2>
     <script>
       function load() {
-        $("#total_days").text("Sus");
-        $("#school_days").text("Gus");
+        $.getJSON("https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday", function(data) {
+          $("#total_days").text(data["total_days"]);
+          $("#school_days").text(data["school_days"]);
+        });
       };
       load();
     </script>
