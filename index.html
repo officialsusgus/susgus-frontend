@@ -5,14 +5,20 @@
   </head>
   <body>
     <h1>Sus Gus</h1>
-    <h2>Dagar kvar till sommarlov: <a id="total_days">Laddar</a></h2>
-    <h2>Skoldagar kvar till sommarlov (veckor avrundade i beräkningen): ~ <a id="school_days">Laddar</a></h2>
+    <h2>Dagar kvar till sommaravslutning/sommarlov: <a id="total_days">Laddar</a></h2>
+    <h2>Skoldagar kvar till sommaravslutning/sommarlov med studiedagar (veckor avrundade i beräkningen): ~ <a id="actual_school_days">Laddar</a></h2>
+    <h2>Skoldagar kvar till sommaravslutning/sommarlov (veckor avrundade i beräkningen): ~ <a id="school_days">Laddar</a></h2>
+    <h2>Totala studiedagar: ~ <a id="study_days">Laddar</a></h2>
+    <h2>Totala helgdagar: ~ <a id="weekends">Laddar</a></h2>
     <script>
       const url = "https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday";
       async function load() {
         $.getJSON(url, function(data) {
           $("#total_days").text(data["total_days"]);
+          $("#actual_school_days").text(data["actual_school_days"]);
           $("#school_days").text(data["school_days"]);
+          $("#study_days").text(data["study_days"]);
+          $("#weekends").text(data["weekends"] + " (" + data["weekends"] / 2 + " helger)");
         });
       };
       load();
