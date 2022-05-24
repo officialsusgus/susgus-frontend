@@ -27,12 +27,12 @@
     </head>
     <body>
         <p id="textblock">
-            <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleEnthusiasm()"></span><br><br>
+            <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleEnthusiasm();"></span><br><br>
             <br>Nurvarande <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">0</b> dagar (börjar snart)
             <br>Högsta <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">27</b> dagar
             <br>Dagar kvar till <b style="color: #f9df2a;">sommaravslutning</b>: <b id="days" style="color: #0075f8;">Beräknar...</b>
             <br>
-            <br><a href="https://susgus.me/skolmat" style="color: white;">Klicka här för att se dagens <b style="color: #f9df2a">skolmat</b> (BETA)</a>
+            <br><a id="food" style="color: white;" onclick="getSchoolFood();">Klicka här för att se dagens <b style="color: #f9df2a">skolmat</b> (BETA)</a>
             <br>
             <br>Följ mig på <b style="color: #f9df2a;">GitHub</b>, annars är du sämst.
             <br><br>
@@ -101,7 +101,6 @@
                   };
                });
            };
-           getSchoolFood();
         </script>
     </body>
 </html>
