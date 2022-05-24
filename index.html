@@ -22,10 +22,13 @@
         <script src="https://kit.fontawesome.com/1c6b029a6d.js" crossorigin="anonymous"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.12.7/dist/tsparticles.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-particles@1.12.7/dist/jquery.particles.min.js"></script>
         <link rel="preload" as="image" href="https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg">
         <link rel="preload" as="image" href="/code.png">
     </head>
     <body>
+        <div id="tsparticles"></div>
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleEnthusiasm();"></span><br><br>
             <br>Nurvarande <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">0</b> dagar (börjar snart)
@@ -100,6 +103,10 @@
                   $("#food").append("<br><br>" + 'Källa: <a href="https://skolmaten.se">skolmaten.se</a>')
                });
            };
+           $("#tsparticles")
+                .particles()
+                .ajax("amogus.json", function (container) {
+            });
         </script>
     </body>
 </html>
