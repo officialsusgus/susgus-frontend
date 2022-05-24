@@ -94,10 +94,8 @@
                $.getJSON("https://klonkapi.azurewebsites.net/Misc/schoolFood", function(data) {
                   if (data.food == data.alternative) {
                     $("#food").text(data.food);  
-                    $("#alternative").hide();
                   } else {
-                    $("#food").text(data.food);
-                    $("#alternative").text(data.alternative);
+                    $("#food").text(data.food + "<br>" + data.alternative);
                   };
                });
            };
