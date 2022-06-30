@@ -94,7 +94,11 @@
                $("#food").text("Det är sommarlov förfan!");
            };
            function calculateDaysUntilSchoolBegins() {
-               
+               var date_1 = new Date("08/18/2022");
+               var date_2 = new Date();
+               var difference = date_1.getTime() - date_2.getTime();
+               var TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+               $("#days").text(TotalDays);
            };
         </script>
     </body>
