@@ -191,14 +191,22 @@
             };
             animationEngine();
             setInterval(animationEngine, 500);
-            const url = "https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday";
-            async function load() {
-              $.getJSON(url, function(data) {
-                $("#days").text(data["actual_school_days"]);
-              });
-            };
-            load();
+            //const url = "https://klonkapi.azurewebsites.net/Misc/daysUntilSummerHoliday";
+            //async function load() {
+              //$.getJSON(url, function(data) {
+                //$("#days").text(data["actual_school_days"]);
+              //});
+            //};
+            //load();
            function getSchoolFood() {
+               //$.getJSON("https://klonkapi.azurewebsites.net/Misc/schoolFood", function(data) {
+                    //if (data.food == data.alternative) {
+                      //$("#food").text(data.food);  
+                    //} else {
+                      //$("#food").html(data.food + "<br>" + data.alternative);
+                    //};
+                    //$("#food").append("<br><br>" + 'Källa: <a href="https://skolmaten.se">skolmaten.se</a>')
+                //});
                $("#food").text("Det är sommarlov förfan!");
            };
            function calculateDaysUntilSchoolBegins() {
