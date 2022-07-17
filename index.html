@@ -32,7 +32,7 @@
             <br>Högsta <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">27</b> dagar
             <br>Dagar kvar till <b style="color: #f9df2a;">skolstart</b>: <b id="days" style="color: #0075f8;">Beräknar...</b>
             <br>
-            <br><a id="food" style="color: white;" onclick="getSchoolFood();">Klicka här för att se dagens <b style="color: #f9df2a">skolmat</b> (BETA)</a>
+            <br><a id="food" onclick="getSchoolFood();">Klicka här för att se dagens <b style="color: #f9df2a">skolmat</b> (BETA)</a>
             <br>
             <br>Följ mig på <b style="color: #f9df2a;">GitHub</b>, annars är du sämst.
             <br><br>
@@ -46,6 +46,12 @@
         <style>
             body {
                 background-size: cover;
+            }
+            .textblock.food {
+                color: inherit;
+            }
+            a {
+                style: white;
             }
             span {
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
