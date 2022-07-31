@@ -28,6 +28,7 @@
     <body>
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleEnthusiasm();"></span><br>
+            Sommarlov edition 🌴<br>
             <br>Nurvarande <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">0</b> dagar
             <br>Högsta <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">27</b> dagar
             <br>Dagar kvar till <b style="color: #f9df2a;">skolstart</b>: <b id="days" style="color: #0075f8;">Beräknar...</b>
@@ -115,7 +116,8 @@
             };
             var kindasus = "https://cdn.discordapp.com/emojis/865333543193280522.png";
             var susaf = "https://cdn.discordapp.com/emojis/938899403161362503.png";
-            var citygross = "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg";
+            //var citygross = "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg";
+            var citygross = "https://i.imgur.com/L5JnY0L.jpg";
             var code = "code.png";
             var hackcolor = "#21c210";
             var zero = 0;
@@ -166,18 +168,18 @@
                     setCookie("enthusiasm", "citygross")
                     document.body.style.backgroundImage = `url('${citygross}')`;
                     document.getElementById("textblock").style.color = "white";
-                    document.getElementById("emojislot").textContent = "🏬";
+                    document.getElementById("emojislot").textContent = "🌞";
                 };
             };
             if(getCookie("enthusiasm") == false) {
                 setCookie("enthusiasm", "citygross")
                 document.body.style.backgroundImage = `url('${citygross}')`;
                 document.getElementById("textblock").style.color = "white";
-                document.getElementById("emojislot").textContent = "🏬";
+                document.getElementById("emojislot").textContent = "🌞";
             } else if(getCookie("enthusiasm") == "citygross") {
                 document.body.style.backgroundImage = `url('${citygross}')`;
                 document.getElementById("textblock").style.color = "white";
-                document.getElementById("emojislot").textContent = "🏬";
+                document.getElementById("emojislot").textContent = "🌞";
             } else if(getCookie("enthusiasm") == "code") {
                 document.body.style.backgroundImage = `url('${code}')`;
                 document.getElementById("textblock").style.color = hackcolor;
