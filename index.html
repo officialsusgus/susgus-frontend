@@ -31,7 +31,7 @@
             Sommarlov edition ✈️🌴☀️<br>
             <br>Nurvarande <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">0</b> dagar
             <br>Högsta <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">27</b> dagar
-            <br>Dagar kvar till <b style="color: #f9df2a;">skolstart</b>: <b id="days" style="color: #0075f8;">Beräknar...</b>
+            <br>Nedräkning till <b style="color: #f9df2a;">skolstart</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
             <br>
             <br><a id="food" onclick="getSchoolFood();">Klicka här för att se dagens <b style="color: #f9df2a">skolmat</b> (BETA)</a>
             <br>
@@ -207,9 +207,9 @@
             //};
             //load();
            function getSchoolFood() {
-               //$.getJSON("https://klonkapi.azurewebsites.net/Misc/schoolFood", function(data) {
+               //$.getJSON("https://api.susgus.me/Misc/schoolFood", function(data) {
                     //if (data.food == data.alternative) {
-                      //$("#food").text(data.food);  
+                      //$("#food").text(data.food);
                     //} else {
                       //$("#food").html(data.food + "<br>" + data.alternative);
                     //};
@@ -217,14 +217,29 @@
                 //});
                $("#food").text("Det är sommarlov förfan!");
            };
-           function calculateDaysUntilSchoolBegins() {
-               var date_1 = new Date("08/18/2022");
-               var date_2 = new Date();
-               var difference = date_1.getTime() - date_2.getTime();
-               var TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
-               $("#days").text(TotalDays);
-           };
-           calculateDaysUntilSchoolBegins();
+           //function calculateDaysUntilSchoolBegins() {
+           //    var date_1 = new Date("08/18/2022");
+           //    var date_2 = new Date();
+           //    var difference = date_1.getTime() - date_2.getTime();
+           //    var TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+           //    $("#days").text(TotalDays);
+           //};
+           //calculateDaysUntilSchoolBegins();
+           var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+           var x = setInterval(function() {
+              var now = new Date().getTime();
+              var distance = countDownDate - now;
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              $("#countdown").text(days + "d " + hours + "t "
+              + minutes + "m " + seconds + "s ");
+              if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "BÖRJAT";
+              };
+            }, 1000);
         </script>
     </body>
 </html>
