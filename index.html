@@ -207,7 +207,7 @@
             //};
             //load();
            function getSchoolFood() {
-               $.getJSON("https://api.susgus.me/Misc/schoolFood", function(data) {
+               $.getJSON("https://susgusapi.azurewebsites.net/Misc/schoolFood", function(data) {
                     if (data.food == data.alternative) {
                       $("#food").text(data.food);
                     } else {
