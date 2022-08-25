@@ -31,7 +31,7 @@
             <!-- Sommarlov edition ✈️🌴☀️<br> -->
             <br>Nurvarande <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">0</b> dagar
             <br>Högsta <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">27</b> dagar
-            <!-- <br>Nedräkning till <b style="color: #f9df2a;">skolstart</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a> -->
+            <br>Nedräkning till <b style="color: #f9df2a;">vinterlov</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
             <br>
             <br><a id="food" onclick="getSchoolFood();">Klicka här för att se dagens <b style="color: #f9df2a">skolmat</b> (BETA)</a>
             <br>
@@ -240,6 +240,20 @@
            //     $("#countdown").text("BÖRJAT");
            //   };
            // }, 1000);
+           var countDownDate = new Date("Dec 22, 2022 14:45:00").getTime();
+           var x = setInterval(function() {
+               var now = new Date().getTime();
+               var distance = countDownDate - now;
+               var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+               var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+               var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+               var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+               $("#countdown").text(days + "d " + hours + "t " + minutes + "m " + seconds + "s ");
+               if (distance < 0) {
+                   clearInterval(x);
+                   $("#countdown").text("BÖRJAT");
+               };
+           }, 1000);
         </script>
     </body>
 </html>
