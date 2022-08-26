@@ -29,6 +29,7 @@
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleEnthusiasm();"></span><br>
             <!-- Sommarlov edition ✈️🌴☀️<br> -->
+            ℹ️ susgus.me har uppdaterats med en snabbare kodbas ℹ️<br>
             <br>Nurvarande <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">0</b> dagar
             <br>Högsta <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">27</b> dagar
             <br>Nedräkning till <b style="color: #f9df2a;">vinterlov</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
@@ -97,24 +98,6 @@
             }
         </style>
         <script>
-            function setCookie(cname, cvalue) {
-                document.cookie = cname + "=" + cvalue + ";"
-            };
-            function getCookie(cname) {
-                let name = cname + "=";
-                let decodedCookie = decodeURIComponent(document.cookie);
-                let ca = decodedCookie.split(";");
-                for(let i = 0; i <ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) == " ") {
-                        c = c.substring(1);
-                    };
-                    if(c.indexOf(name) == 0) {
-                        return c.substring(name.length, c.length);
-                    };
-                };
-                return false;
-            };
             var kindasus = "https://cdn.discordapp.com/emojis/865333543193280522.png";
             var susaf = "https://cdn.discordapp.com/emojis/938899403161362503.png";
             var citygross = "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg";
@@ -122,66 +105,66 @@
             var code = "code.png";
             var hackcolor = "#21c210";
             var zero = 0;
-            if(getCookie("clickcount") == false) {
-                setCookie("clickcount", zero.toString());
+            if(localStorage.getItem("clickcount") == false) {
+                localStorage.setItem("clickcount", zero.toString());
             };
             function refreshClickCounter() {
-              document.getElementById("totalclicks").text = getCookie("clickcount").toString();
+              document.getElementById("totalclicks").text = localStorage.getItem("clickcount").toString();
             };
-            setCookie("sessionclicks", zero.toString());
-            document.getElementById("sessionclicks").text = getCookie("sessionclicks").toString();
+            localStorage.setItem("sessionclicks", zero.toString());
+            document.getElementById("sessionclicks").text = localStorage.getItem("sessionclicks").toString();
             function addClick() {
-                var sessionclicks = parseInt(getCookie("sessionclicks"));
+                var sessionclicks = parseInt(localStorage.getItem("sessionclicks"));
                 var sessionclicks = sessionclicks + 1;
-                setCookie("sessionclicks", sessionclicks.toString())
+                localStorage.setItem("sessionclicks", sessionclicks.toString());
                 document.getElementById("sessionclicks").text = sessionclicks.toString();
             };
             refreshClickCounter();
             function changeSusState() {
-                var clicks = parseInt(getCookie("clickcount"));
+                var clicks = parseInt(localStorage.getItem("clickcount"));
                 var clicks = clicks + 1;
-                setCookie("clickcount", clicks.toString());
+                localStorage.setItem("clickcount", clicks.toString());
                 addClick();
                 refreshClickCounter();
-                if(getCookie("susState") == "kindasus") {
-                    setCookie("susState", "susaf");
+                if(localStorage.getItem("susState") == "kindasus") {
+                    localStorage.setItem("susState", "susaf");
                     document.getElementById("susState").src = susaf;
-                } else if(getCookie("susState") == "susaf") {
-                    setCookie("susState", "kindasus")
+                } else if(localStorage.getItem("susState") == "susaf") {
+                    localStorage.setItem("susState", "kindasus")
                     document.getElementById("susState").src = kindasus;
                 };
             };
-            if(getCookie("susState") == false) {
-                setCookie("susState", "kindasus")
+            if(localStorage.getItem("susState") == false) {
+                localStorage.setItem("susState", "kindasus")
                 document.getElementById("susState").src = kindasus;
-            } else if(getCookie("susState") == "kindasus") {
+            } else if(localStorage.getItem("susState") == "kindasus") {
                 document.getElementById("susState").src = kindasus;
-            } else if(getCookie("susState") == "susaf") {
+            } else if(localStorage.getItem("susState") == "susaf") {
                 document.getElementById("susState").src = susaf;
             };
             function toggleEnthusiasm() {
-                if(getCookie("enthusiasm") == "citygross") {
-                    setCookie("enthusiasm", "code");
+                if(localStorage.getItem("enthusiasm") == "citygross") {
+                    localStorage.setItem("enthusiasm", "code");
                     document.body.style.backgroundImage = `url('${code}')`;
                     document.getElementById("textblock").style.color = hackcolor;
                     document.getElementById("emojislot").textContent = "🖥️";
-                } else if(getCookie("enthusiasm") == "code") {
-                    setCookie("enthusiasm", "citygross")
+                } else if(localStorage.getItem("enthusiasm") == "code") {
+                    localStorage.setItem("enthusiasm", "citygross")
                     document.body.style.backgroundImage = `url('${citygross}')`;
                     document.getElementById("textblock").style.color = "white";
                     document.getElementById("emojislot").textContent = "🏬";
                 };
             };
-            if(getCookie("enthusiasm") == false) {
-                setCookie("enthusiasm", "citygross")
+            if(localStorage.getItem("enthusiasm") == false) {
+                localStorage.setItem("enthusiasm", "citygross")
                 document.body.style.backgroundImage = `url('${citygross}')`;
                 document.getElementById("textblock").style.color = "white";
                 document.getElementById("emojislot").textContent = "🏬";
-            } else if(getCookie("enthusiasm") == "citygross") {
+            } else if(localStorage.getItem("enthusiasm") == "citygross") {
                 document.body.style.backgroundImage = `url('${citygross}')`;
                 document.getElementById("textblock").style.color = "white";
                 document.getElementById("emojislot").textContent = "🏬";
-            } else if(getCookie("enthusiasm") == "code") {
+            } else if(localStorage.getItem("enthusiasm") == "code") {
                 document.body.style.backgroundImage = `url('${code}')`;
                 document.getElementById("textblock").style.color = hackcolor;
                 document.getElementById("emojislot").textContent = "🖥️";
@@ -189,13 +172,13 @@
             function getRandomInt(max) {
                 return Math.floor(Math.random() * max);
             };
-            setCookie("color", "blue");
+            localStorage.setItem("color", "blue");
             function animationEngine() {
-                document.getElementById("name").style.color = getCookie("color");
-                if (getCookie("color") == "blue") {
-                    setCookie("color", "yellow");
-                } else if (getCookie("color") == "yellow") {
-                    var color = setCookie("color", "blue");
+                document.getElementById("name").style.color = localStorage.getItem("color");
+                if (localStorage.getItem("color") == "blue") {
+                    localStorage.setItem("color", "yellow");
+                } else if (localStorage.getItem("color") == "yellow") {
+                    var color = localStorage.setItem("color", "blue");
                 };
             };
             animationEngine();
