@@ -39,7 +39,7 @@
             <br>
             <br><img id="susState" onclick="changeSusState()">
             <br>
-            <br>Antal klick: <b style="color: #0075f8;"><a id="sessionclicks">Laddar kod...</a></b>
+            <br><a id="sessioncounter">Antal klick: <b style="color: #0075f8;"><a id="sessionclicks">Laddar kod...</a></b></a>
             <br>Totalt antal klick: <b style="color: #f9df2a;"><a id="totalclicks">Beräknar klick...</a></b>
         </p>
         <style>
@@ -94,6 +94,7 @@
             }
         </style>
         <script>
+            $("#sessioncounter").hide();
             document.addEventListener("contextmenu", event => event.preventDefault());
             var kindasus = "https://cdn.discordapp.com/emojis/865333543193280522.png";
             var susaf = "https://cdn.discordapp.com/emojis/938899403161362503.png";
@@ -115,6 +116,7 @@
             };
             refreshClickCounter();
             function changeSusState() {
+                $("#sessioncounter").show();
                 var clicks = parseInt(localStorage.getItem("clickcount"));
                 var clicks = clicks + 1;
                 localStorage.setItem("clickcount", clicks.toString());
