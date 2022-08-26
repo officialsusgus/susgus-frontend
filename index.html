@@ -149,14 +149,14 @@
                     document.getElementById("textblock").style.color = hackcolor;
                     document.getElementById("emojislot").textContent = "🖥️";
                 } else if(localStorage.getItem("enthusiasm") == "code") {
-                    localStorage.setItem("enthusiasm", "citygross")
+                    localStorage.setItem("enthusiasm", "citygross");
                     document.body.style.backgroundImage = `url('${citygross}')`;
                     document.getElementById("textblock").style.color = "white";
                     document.getElementById("emojislot").textContent = "🏬";
                 };
             };
             if(localStorage.getItem("enthusiasm") == false) {
-                localStorage.setItem("enthusiasm", "citygross")
+                localStorage.setItem("enthusiasm", "citygross");
                 document.body.style.backgroundImage = `url('${citygross}')`;
                 document.getElementById("textblock").style.color = "white";
                 document.getElementById("emojislot").textContent = "🏬";
