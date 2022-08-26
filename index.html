@@ -207,6 +207,7 @@
               //});
             //};
             //load();
+           function nothing() {};
            function getSchoolFood() {
                $("#food").text("Var god vänta, hämtar skolmat från servern...");
                $.getJSON("https://susgusapi.azurewebsites.net/Misc/schoolFood", function(data) {
@@ -217,7 +218,7 @@
                     };
                     $("#food").append("<br><br>" + 'Källa: <a href="https://skolmaten.se">skolmaten.se</a>')
                 });
-               $("#food").unbind("click");
+               $("#food").attr("onclick", "nothing();");
                //$("#food").text("Det är sommarlov förfan!");
            };
            //function calculateDaysUntilSchoolBegins() {
