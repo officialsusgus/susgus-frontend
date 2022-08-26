@@ -25,7 +25,7 @@
     </head>
     <body>
         <p id="textblock">
-            <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleEnthusiasm();"></span><br>
+            <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleTheme();"></span><br>
             <!-- Sommarlov edition ✈️🌴☀️<br> -->
             ℹ️ susgus.me håller på att byggas om. Ursäkta röran! ℹ️<br>
             <br>Nedräkning till <b style="color: #f9df2a;">vinterlov</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
@@ -136,31 +136,31 @@
             } else if(localStorage.getItem("susState") == "susaf") {
                 document.getElementById("susState").src = susaf;
             };
-            function toggleEnthusiasm() {
-                if(localStorage.getItem("enthusiasm") == "citygross") {
-                    localStorage.setItem("enthusiasm", "code");
-                    document.body.style.backgroundImage = `url('${code}')`;
-                    document.getElementById("textblock").style.color = hackcolor;
+            function toggleTheme() {
+                if(localStorage.getItem("theme") == "main") {
+                    localStorage.setItem("theme", "code");
+                    var url = themes["main"]["secondary"];
+                    document.body.style.backgroundImage = `url('${url}')`;
                     document.getElementById("emojislot").textContent = "🖥️";
-                } else if(localStorage.getItem("enthusiasm") == "code") {
-                    localStorage.setItem("enthusiasm", "citygross");
-                    document.body.style.backgroundImage = `url('${citygross}')`;
-                    document.getElementById("textblock").style.color = "white";
+                } else if(localStorage.getItem("theme") == "code") {
+                    localStorage.setItem("theme", "main");
+                    var url = themes["main"]["image"];
+                    document.body.style.backgroundImage = `url('${url}')`;
                     document.getElementById("emojislot").textContent = "🏬";
                 };
             };
-            if(localStorage.getItem("enthusiasm") == null) {
-                localStorage.setItem("enthusiasm", "citygross");
-                document.body.style.backgroundImage = `url('${citygross}')`;
-                document.getElementById("textblock").style.color = "white";
+            if(localStorage.getItem("theme") == null) {
+                localStorage.setItem("theme", "main");
+                var url = themes["main"]["image"];
+                document.body.style.backgroundImage = `url('${url}')`;
                 document.getElementById("emojislot").textContent = "🏬";
-            } else if(localStorage.getItem("enthusiasm") == "citygross") {
-                document.body.style.backgroundImage = `url('${citygross}')`;
-                document.getElementById("textblock").style.color = "white";
+            } else if(localStorage.getItem("theme") == "main") {
+                var url = themes["main"]["image"];
+                document.body.style.backgroundImage = `url('${url}')`;
                 document.getElementById("emojislot").textContent = "🏬";
-            } else if(localStorage.getItem("enthusiasm") == "code") {
-                document.body.style.backgroundImage = `url('${code}')`;
-                document.getElementById("textblock").style.color = hackcolor;
+            } else if(localStorage.getItem("theme") == "code") {
+                var url = themes["secondary"]["image"];
+                document.body.style.backgroundImage = `url('${url}')`;
                 document.getElementById("emojislot").textContent = "🖥️";
             };
             function getRandomInt(max) {
