@@ -22,16 +22,12 @@
         <script src="https://kit.fontawesome.com/1c6b029a6d.js" crossorigin="anonymous"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <link rel="preload" as="image" href="https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg">
-        <link rel="preload" as="image" href="/code.png">
     </head>
     <body>
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleEnthusiasm();"></span><br>
             <!-- Sommarlov edition ✈️🌴☀️<br> -->
             ℹ️ susgus.me håller på att byggas om. Ursäkta röran! ℹ️<br>
-            <br>Nurvarande <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">0</b> dagar
-            <br>Högsta <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">27</b> dagar
             <br>Nedräkning till <b style="color: #f9df2a;">vinterlov</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
             <br>Shoutout till <b style="color: #00ff00;">Albinoman</b> och <b style="color: #00ff00;">HELT LIVE</b>
             <br>
@@ -101,10 +97,7 @@
             document.addEventListener("contextmenu", event => event.preventDefault());
             var kindasus = "https://cdn.discordapp.com/emojis/865333543193280522.png";
             var susaf = "https://cdn.discordapp.com/emojis/938899403161362503.png";
-            var citygross = "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg";
-            //var citygross = "https://i.imgur.com/DsKY2ej.jpg";
-            var code = "code.png";
-            var hackcolor = "#21c210";
+            var themes = {"main": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg"}, "secondary": {"image": "code.png"}};
             var zero = 0;
             if(localStorage.getItem("clickcount") == null) {
                 localStorage.setItem("clickcount", zero.toString());
