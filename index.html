@@ -105,7 +105,7 @@
             var code = "code.png";
             var hackcolor = "#21c210";
             var zero = 0;
-            if(localStorage.getItem("clickcount") == false) {
+            if(localStorage.getItem("clickcount") == null) {
                 localStorage.setItem("clickcount", zero.toString());
             };
             function refreshClickCounter() {
@@ -130,11 +130,11 @@
                     localStorage.setItem("susState", "susaf");
                     document.getElementById("susState").src = susaf;
                 } else if(localStorage.getItem("susState") == "susaf") {
-                    localStorage.setItem("susState", "kindasus")
+                    localStorage.setItem("susState", "kindasus");
                     document.getElementById("susState").src = kindasus;
                 };
             };
-            if(localStorage.getItem("susState") == false) {
+            if(localStorage.getItem("susState") == null) {
                 localStorage.setItem("susState", "kindasus")
                 document.getElementById("susState").src = kindasus;
             } else if(localStorage.getItem("susState") == "kindasus") {
@@ -155,7 +155,7 @@
                     document.getElementById("emojislot").textContent = "🏬";
                 };
             };
-            if(localStorage.getItem("enthusiasm") == false) {
+            if(localStorage.getItem("enthusiasm") == null) {
                 localStorage.setItem("enthusiasm", "citygross");
                 document.body.style.backgroundImage = `url('${citygross}')`;
                 document.getElementById("textblock").style.color = "white";
