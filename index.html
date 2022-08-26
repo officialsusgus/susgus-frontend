@@ -97,7 +97,7 @@
             document.addEventListener("contextmenu", event => event.preventDefault());
             var kindasus = "https://cdn.discordapp.com/emojis/865333543193280522.png";
             var susaf = "https://cdn.discordapp.com/emojis/938899403161362503.png";
-            var themes = {"main": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg"}, "secondary": {"background": "code.png"}};
+            var themes = {"main": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg", "icon": "🏬"}, "secondary": {"background": "code.png", "icon": "🖥️"}};
             var zero = 0;
             if(localStorage.getItem("clickcount") == null) {
                 localStorage.setItem("clickcount", zero.toString());
@@ -138,30 +138,30 @@
             };
             function toggleTheme() {
                 if(localStorage.getItem("theme") == "main") {
-                    localStorage.setItem("theme", "code");
+                    localStorage.setItem("theme", "secondary");
                     var url = themes["secondary"]["background"];
                     document.body.style.backgroundImage = `url('${url}')`;
-                    document.getElementById("emojislot").textContent = "🖥️";
-                } else if(localStorage.getItem("theme") == "code") {
+                    document.getElementById("emojislot").textContent = themes["secondary"]["icon"];
+                } else if(localStorage.getItem("theme") == "secondary") {
                     localStorage.setItem("theme", "main");
                     var url = themes["main"]["background"];
                     document.body.style.backgroundImage = `url('${url}')`;
-                    document.getElementById("emojislot").textContent = "🏬";
+                    document.getElementById("emojislot").textContent = themes["main"]["icon"];
                 };
             };
             if(localStorage.getItem("theme") == null) {
                 localStorage.setItem("theme", "main");
                 var url = themes["main"]["background"];
                 document.body.style.backgroundImage = `url('${url}')`;
-                document.getElementById("emojislot").textContent = "🏬";
+                document.getElementById("emojislot").textContent = themes["main"]["icon"];
             } else if(localStorage.getItem("theme") == "main") {
                 var url = themes["main"]["background"];
                 document.body.style.backgroundImage = `url('${url}')`;
-                document.getElementById("emojislot").textContent = "🏬";
-            } else if(localStorage.getItem("theme") == "code") {
+                document.getElementById("emojislot").textContent = themes["main"]["icon"];
+            } else if(localStorage.getItem("theme") == "secondary") {
                 var url = themes["secondary"]["background"];
                 document.body.style.backgroundImage = `url('${url}')`;
-                document.getElementById("emojislot").textContent = "🖥️";
+                document.getElementById("emojislot").textContent = themes["secondary"]["icon"];
             };
             function getRandomInt(max) {
                 return Math.floor(Math.random() * max);
