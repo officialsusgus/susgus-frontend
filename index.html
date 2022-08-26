@@ -29,7 +29,7 @@
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleEnthusiasm();"></span><br>
             <!-- Sommarlov edition ✈️🌴☀️<br> -->
-            ℹ️ susgus.me har uppdaterats med en snabbare kodbas ℹ️<br>
+            ℹ️ susgus.me håller på att byggas om. Vissa saker fungerar inte. ℹ️<br>
             <br>Nurvarande <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">0</b> dagar
             <br>Högsta <b style="color: #f9df2a;">City Gross</b> streak: <b style="color: #0075f8;">27</b> dagar
             <br>Nedräkning till <b style="color: #f9df2a;">vinterlov</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
@@ -190,7 +190,7 @@
               //});
             //};
             //load();
-           function nothing() {};
+           function disabled() {};
            function getSchoolFood() {
                $("#food").text("Var god vänta, hämtar skolmat från servern...");
                $.getJSON("https://susgusapi.azurewebsites.net/Misc/schoolFood", function(data) {
@@ -200,7 +200,7 @@
                       $("#food").html(data.food + "<br>" + data.alternative);
                     };
                 });
-               $("#food").attr("onclick", "nothing();");
+               $("#food").attr("onclick", "disabled();");
                //$("#food").text("Det är sommarlov förfan!");
            };
            //function calculateDaysUntilSchoolBegins() {
