@@ -95,6 +95,7 @@
         </style>
         <script>
             $("#sessioncounter").hide();
+            $("#sessionclicks").hide();
             document.addEventListener("contextmenu", event => event.preventDefault());
             var kindasus = "https://cdn.discordapp.com/emojis/865333543193280522.png";
             var susaf = "https://cdn.discordapp.com/emojis/938899403161362503.png";
@@ -117,6 +118,7 @@
             refreshClickCounter();
             function changeSusState() {
                 $("#sessioncounter").show();
+                $("#sessionclicks").show();
                 var clicks = parseInt(localStorage.getItem("clickcount"));
                 var clicks = clicks + 1;
                 localStorage.setItem("clickcount", clicks.toString());
