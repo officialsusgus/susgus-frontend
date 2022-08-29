@@ -32,7 +32,7 @@
             <br>Shoutout till <b style="color: #00ff00;">Albinoman</b> och <b style="color: #00ff00;">HELT LIVE</b>
             <br>
             <br><a id="food" onclick="getSchoolFood();">Klicka här för att se dagens <b style="color: #f9df2a">skolmat</b> (BETA)</a>
-            <br>Klicka här för att visa <b style="color: #f9df2a">schema</b> (Kommer snart)
+            <br><br><a id="schedule" onclick="getSchedule();">Klicka här för att visa <b style="color: #f9df2a">schema</b> (Kommer snart)</a>
             <br>
             <br>Följ mig på <b style="color: #f9df2a;">GitHub</b>, annars är du sämst.
             <br><br>
@@ -250,6 +250,9 @@
                    $("#summercountdown").text("BÖRJAT");
                };
            }, 1000);
+            function getSchedule() {
+              $("#schedule").text("Funktionen är inte implementerad än.");  
+            };
         </script>
     </body>
 </html>
