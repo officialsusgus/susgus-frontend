@@ -27,11 +27,12 @@
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleTheme();"></span><br>
             <!-- Sommarlov edition ✈️🌴☀️<br> -->
-            ℹ️ susgus.me håller på att byggas om. Ursäkta röran! ℹ️<br>
+            <br>Ungefärlig nedräkning till vi slutar <b style="color: #f9df2a;">årskurs 9</b>: <b id="summercountdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
             <br>Nedräkning till <b style="color: #f9df2a;">vinterlov</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
             <br>Shoutout till <b style="color: #00ff00;">Albinoman</b> och <b style="color: #00ff00;">HELT LIVE</b>
             <br>
             <br><a id="food" onclick="getSchoolFood();">Klicka här för att se dagens <b style="color: #f9df2a">skolmat</b> (BETA)</a>
+            <br>Klicka här för att visa <b style="color: #f9df2a">schema</b> (Kommer snart)
             <br>
             <br>Följ mig på <b style="color: #f9df2a;">GitHub</b>, annars är du sämst.
             <br><br>
@@ -225,17 +226,28 @@
            //   };
            // }, 1000);
            var countDownDate = new Date("Dec 22, 2022 14:45:00").getTime();
+           var summerCountDownDate = new Date("Jun 12, 2023 13:00:00").getTime();
            var x = setInterval(function() {
                var now = new Date().getTime();
                var distance = countDownDate - now;
+               var summer_distance = summerCountDownDate - now;
                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+               var summer_days = Math.floor(summer_distance / (1000 * 60 * 60 * 24));
                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+               var summer_hours = Math.floor((summer_distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+               var summer_minutes = Math.floor((summer_distance % (1000 * 60 * 60)) / (1000 * 60));
                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+               var summer_seconds = Math.floor((summer_distance % (1000 * 60)) / 1000);
                $("#countdown").text(days + "d " + hours + "t " + minutes + "m " + seconds + "s ");
+               $("#summercountdown").text(summer_days + "d " + summer_hours + "t " + summer_minutes + "m " + summer_seconds + "s ");
                if (distance < 0) {
                    clearInterval(x);
                    $("#countdown").text("BÖRJAT");
+               };
+               if (summer_distance < 0) {
+                   clearInterval(x);
+                   $("#summercountdown").text("BÖRJAT");
                };
            }, 1000);
         </script>
