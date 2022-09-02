@@ -196,7 +196,7 @@
            function getSchoolFood() {
                $("#food").text("Var god vänta, hämtar skolmat från servern...");
                $.getJSON("https://susgusapi.azurewebsites.net/Misc/schoolFood", function(data) {
-                    if (data.food == data.alternative) {
+                    if (data.alternative == "Ledigt") {
                       $("#food").text(data.food);
                     } else {
                       $("#food").html(data.food + "<br>" + data.alternative);
