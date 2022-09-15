@@ -145,15 +145,29 @@
             } else if(localStorage.getItem("susState") == "susaf") {
                 document.getElementById("susState").src = susaf;
             };
+            document.head = document.head || document.getElementsByTagName("head")[0];
+            function changeFavicon(src) {
+                var link = document.createElement("link"),
+                oldLink = document.getElementById("dynamic-favicon");
+                link.id = "dynamic-favicon";
+                link.rel = "shortcut icon";
+                link.href = src;
+                if (oldLink) {
+                    document.head.removeChild(oldLink);
+                };
+                document.head.appendChild(link);
+            };
             function toggleTheme() {
                 if(localStorage.getItem("theme") == "main") {
                     localStorage.setItem("theme", "secondary");
                     var url = themes["secondary"]["background"];
+                    changeFavicon(url);
                     document.body.style.backgroundImage = `url('${url}')`;
                     document.getElementById("emojislot").textContent = themes["secondary"]["icon"];
                 } else if(localStorage.getItem("theme") == "secondary") {
                     localStorage.setItem("theme", "main");
                     var url = themes["main"]["background"];
+                    changeFavicon(url);
                     document.body.style.backgroundImage = `url('${url}')`;
                     document.getElementById("emojislot").textContent = themes["main"]["icon"];
                 };
@@ -161,14 +175,17 @@
             if(localStorage.getItem("theme") == null) {
                 localStorage.setItem("theme", "main");
                 var url = themes["main"]["background"];
+                changeFavicon(url);
                 document.body.style.backgroundImage = `url('${url}')`;
                 document.getElementById("emojislot").textContent = themes["main"]["icon"];
             } else if(localStorage.getItem("theme") == "main") {
                 var url = themes["main"]["background"];
+                changeFavicon(url);
                 document.body.style.backgroundImage = `url('${url}')`;
                 document.getElementById("emojislot").textContent = themes["main"]["icon"];
             } else if(localStorage.getItem("theme") == "secondary") {
                 var url = themes["secondary"]["background"];
+                changeFavicon(url);
                 document.body.style.backgroundImage = `url('${url}')`;
                 document.getElementById("emojislot").textContent = themes["secondary"]["icon"];
             };
