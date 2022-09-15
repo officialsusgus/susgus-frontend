@@ -106,6 +106,18 @@
             // Sommar Edition: var themes = {"main": {"background": "https://i.imgur.com/DsKY2ej.jpg", "icon": "☀️"}, "secondary": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg", "icon": "🏬"}};
             var themes = {"main": {"background": "https://i.imgur.com/1KUSvqD.jpg", "icon": "🍁"}, "secondary": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg", "icon": "🏬"}};
             var zero = 0;
+            document.head = document.head || document.getElementsByTagName("head")[0];
+            function changeFavicon(src) {
+                var link = document.createElement("link"),
+                oldLink = document.getElementById("dynamic-favicon");
+                link.id = "dynamic-favicon";
+                link.rel = "shortcut icon";
+                link.href = src;
+                if (oldLink) {
+                    document.head.removeChild(oldLink);
+                };
+                document.head.appendChild(link);
+            };
             if(localStorage.getItem("clickcount") == null) {
                 localStorage.setItem("clickcount", zero.toString());
             };
@@ -131,43 +143,34 @@
                 refreshClickCounter();
                 if(localStorage.getItem("susState") == "kindasus") {
                     localStorage.setItem("susState", "susaf");
+                    changeFavicon(susaf);
                     document.getElementById("susState").src = susaf;
                 } else if(localStorage.getItem("susState") == "susaf") {
                     localStorage.setItem("susState", "kindasus");
+                    changeFavicon(kindasus);
                     document.getElementById("susState").src = kindasus;
                 };
             };
             if(localStorage.getItem("susState") == null) {
                 localStorage.setItem("susState", "kindasus")
+                changeFavicon(kindasus);
                 document.getElementById("susState").src = kindasus;
             } else if(localStorage.getItem("susState") == "kindasus") {
+                changeFavicon(kindasus);
                 document.getElementById("susState").src = kindasus;
             } else if(localStorage.getItem("susState") == "susaf") {
+                changeFavicon(susaf);
                 document.getElementById("susState").src = susaf;
-            };
-            document.head = document.head || document.getElementsByTagName("head")[0];
-            function changeFavicon(src) {
-                var link = document.createElement("link"),
-                oldLink = document.getElementById("dynamic-favicon");
-                link.id = "dynamic-favicon";
-                link.rel = "shortcut icon";
-                link.href = src;
-                if (oldLink) {
-                    document.head.removeChild(oldLink);
-                };
-                document.head.appendChild(link);
             };
             function toggleTheme() {
                 if(localStorage.getItem("theme") == "main") {
                     localStorage.setItem("theme", "secondary");
                     var url = themes["secondary"]["background"];
-                    changeFavicon(url);
                     document.body.style.backgroundImage = `url('${url}')`;
                     document.getElementById("emojislot").textContent = themes["secondary"]["icon"];
                 } else if(localStorage.getItem("theme") == "secondary") {
                     localStorage.setItem("theme", "main");
                     var url = themes["main"]["background"];
-                    changeFavicon(url);
                     document.body.style.backgroundImage = `url('${url}')`;
                     document.getElementById("emojislot").textContent = themes["main"]["icon"];
                 };
@@ -175,17 +178,14 @@
             if(localStorage.getItem("theme") == null) {
                 localStorage.setItem("theme", "main");
                 var url = themes["main"]["background"];
-                changeFavicon(url);
                 document.body.style.backgroundImage = `url('${url}')`;
                 document.getElementById("emojislot").textContent = themes["main"]["icon"];
             } else if(localStorage.getItem("theme") == "main") {
                 var url = themes["main"]["background"];
-                changeFavicon(url);
                 document.body.style.backgroundImage = `url('${url}')`;
                 document.getElementById("emojislot").textContent = themes["main"]["icon"];
             } else if(localStorage.getItem("theme") == "secondary") {
                 var url = themes["secondary"]["background"];
-                changeFavicon(url);
                 document.body.style.backgroundImage = `url('${url}')`;
                 document.getElementById("emojislot").textContent = themes["secondary"]["icon"];
             };
