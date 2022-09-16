@@ -42,6 +42,7 @@
             <br>
             <a id="sessioncounter"><br>Antal klick: <b style="color: #0075f8;"><a id="sessionclicks">Laddar kod...</a></b></a>
             <br>Totalt antal klick: <b style="color: #f9df2a;"><a id="totalclicks">Beräknar klick...</a></b>
+            <br>Hela världens klick: <b style="color: #f9df2a;"><a id="worldclicks">Beräknar klick...</a></b>
         </p>
         <style>
             #textblock {
@@ -133,11 +134,17 @@
                 document.getElementById("sessionclicks").text = sessionclicks.toString();
             };
             refreshClickCounter();
+            $.getJSON("https://susgusapi.azurewebsites.net/Misc/getClicks", function(data) {
+                $("#worldclicks").text(data["clicks"]);
+            });
             function changeSusState() {
                 $("#sessioncounter").show();
                 $("#sessionclicks").show();
                 var clicks = parseInt(localStorage.getItem("clickcount"));
                 var clicks = clicks + 1;
+                $.getJSON("https://susgusapi.azurewebsites.net/Misc/addClick", function(data) {
+                    $("#worldclicks").text(data["clicks"]);
+                });
                 localStorage.setItem("clickcount", clicks.toString());
                 addClick();
                 refreshClickCounter();
