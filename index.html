@@ -34,7 +34,8 @@
             <br>Nedräkning till <b style="color: #f9df2a;">vinterlov</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
             <br>Shoutout till <b style="color: #00ff00;">Albinoman</b>, <b style="color: #00ff00;">HELT LIVE</b> och <b style="color: #00ff00;">Sam</b>
             <br>
-            <br><a id="food" onclick="getSchoolFood();">Klicka här för att se dagens <b style="color: #f9df2a">skolmat</b> (BETA)</a>
+            <br><a onclick="getSchoolFood();" class="button_blue">Se skolmaten</a>
+            <br><a id="food"></a>
             <br><br><a id="schedule" onclick="getSchedule();">Klicka här för att visa <b style="color: #f9df2a">schema</b> (Kommer snart)</a>
             <br>
             <br>Följ mig på <b style="color: #f9df2a;">GitHub</b>, annars är du sämst.
@@ -61,6 +62,27 @@
             }
             a {
                 style: white;
+            }
+            .button_blue {
+                box-shadow: 0px 10px 14px -7px #276873;
+                background-color:#00bbff;
+                border-radius:8px;
+                display:inline-block;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Arial;
+                font-size:20px;
+                font-weight:bold;
+                padding:13px 32px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #3d768a;
+            }
+            .button_blue:hover {
+                background-color:#d3f511;
+            }
+            .button_blue:active {
+                position:relative;
+                top:1px;
             }
             span {
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
