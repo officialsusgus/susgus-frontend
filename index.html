@@ -139,10 +139,14 @@
                 document.getElementById("sessionclicks").text = sessionclicks.toString();
             };
             refreshClickCounter();
-            $.getJSON("https://susgusapi.azurewebsites.net/Misc/getClicks", function(data) {
-                $("#worldclicks").text(data["clicks"]);
-                $("#worldtime").text(data["last"]);
-            });
+            function reloadClicks() {
+                $.getJSON("https://susgusapi.azurewebsites.net/Misc/getClicks", function(data) {
+                    $("#worldclicks").text(data["clicks"]);
+                    $("#worldtime").text(data["last"]);
+                });
+            };
+            reloadClicks();
+            setInterval(reloadClicks, 1000);
             function changeSusState() {
                 $("#sessioncounter").show();
                 $("#sessionclicks").show();
