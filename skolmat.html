@@ -30,7 +30,7 @@
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleTheme();"></span><br>
             susgus.se byggs om (igen), ursäkta röran ✈️<br>
-            <br><a id="food">Hämtar data...</a>
+            <br><a id="food">Väntar på skript...</a>
             <br><br><a href="/" class="button_blue">Gå hem</a>&nbsp;&nbsp;&nbsp;<a onclick="reloadSchoolFood();" class="button_yellow">Ladda om</a>
         </p>
         <style>
@@ -173,6 +173,7 @@
             setInterval(animationEngine, 500);
             function disabled() {};
             function reloadSchoolFood() {
+                $("#food").text("Var god vänta, hämtar skolmat från servern...");
                 $.getJSON("https://susgusapi.azurewebsites.net/Misc/schoolFood", function(data) {
                     if (data.alternative == "Ledigt") {
                       $("#food").text(data.food);
