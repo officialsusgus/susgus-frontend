@@ -31,7 +31,7 @@
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleTheme();"></span><br>
             susgus.se byggs om (igen), ursäkta röran ✈️<br>
             <br><a id="food">Väntar på skript...</a>
-            <br><br><a href="/" class="button_blue">Gå hem</a>&nbsp;&nbsp;&nbsp;<a onclick="reloadSchoolFood();" class="button_yellow">Ladda om</a>
+            <br><br><a href="/" class="button_blue"><i class="fa-solid fa-house"></i> Gå hem</a>&nbsp;&nbsp;&nbsp;<a onclick="reloadSchoolFood();" class="button_yellow"><i class="fa-regular fa-rotate"></i> Ladda om</a>
         </p>
         <style>
             #textblock {
@@ -47,22 +47,42 @@
                 style: white;
             }
             .button_blue {
-                background:    #0075f8;
-                border-radius: 1000px;
-                padding:       20px 45px;
-                color:         #ffffff;
-                display:       inline-block;
-                font:          normal bold 26px/1 "Open Sans", sans-serif;
-                text-align:    center;
+                background-color:#0074f8;
+                border-radius:27px;
+                display:inline-block;
+                cursor:pointer;
+                color:#ffffff !important;
+                font-family:Arial;
+                font-size:17px;
+                padding:16px 31px;
+                text-decoration:none !important;
+                text-shadow:0px 1px 0px #2f6627;
+            }
+            .button_blue:hover {
+                background-color:#f9dd2a;
+            }
+            .button_blue:active {
+                position:relative;
+                top:1px;
             }
             .button_yellow {
-                background:    #f9df2a;
-                border-radius: 1000px;
-                padding:       20px 45px;
-                color:         #ffffff;
-                display:       inline-block;
-                font:          normal bold 26px/1 "Open Sans", sans-serif;
-                text-align:    center;
+                background-color:#f9dd2a;
+                border-radius:27px;
+                display:inline-block;
+                cursor:pointer;
+                color:#ffffff !important;
+                font-family:Arial;
+                font-size:17px;
+                padding:16px 31px;
+                text-decoration:none !important;
+                text-shadow:0px 1px 0px #2f6627;
+            }
+            .button_yellow:hover {
+                background-color:#0074f8;
+            }
+            .button_yellow:active {
+                position:relative;
+                top:1px;
             }
             span {
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
