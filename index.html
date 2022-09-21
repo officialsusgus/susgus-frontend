@@ -29,12 +29,13 @@
         <div id="babasbmsgx" style="visibility: visible !important;">Stäng av annonsblockerare och skriptblockerare</div>
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleTheme();"></span><br>
+            susgus.se byggs om (igen), ursäkta röran ✈️<br>
             <!-- Sommarlov edition ✈️🌴☀️<br> -->
             <br>Ungefärlig nedräkning till vi slutar <b style="color: #f9df2a;">årskurs 9</b>: <b id="summercountdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
             <br>Nedräkning till <b style="color: #f9df2a;">vinterlov</b>: <b id="countdown" style="color: #0075f8;">Beräknar...</b> <a style="color: #ff0000;">🔴 LIVE</a>
             <br>Shoutout till <b style="color: #00ff00;">Albinoman</b>, <b style="color: #00ff00;">HELT LIVE</b> och <b style="color: #00ff00;">Sam</b>
             <br>
-            <br><a onclick="getSchoolFood();" class="button_blue">Se skolmaten</a>
+            <br><a onclick="getSchoolFood();" class="button_blue">Se skolmaten</a><a href="#" class="button_yellow">KOMMER SNART</a>
             <br><a id="food"></a>
             <br><br><a id="schedule" onclick="getSchedule();">Klicka här för att visa <b style="color: #f9df2a">schema</b> (Kommer snart)</a>
             <br>
@@ -81,6 +82,27 @@
                 background-color:#d3f511;
             }
             .button_blue:active {
+                position:relative;
+                top:1px;
+            }
+            .button_yellow {
+                box-shadow: 0px 10px 14px -7px #3e7327;
+                background-color:#d3f511;
+                border-radius:8px;
+                display:inline-block;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Arial;
+                font-size:20px;
+                font-weight:bold;
+                padding:13px 32px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #5b8a3c;
+            }
+            .button_yellow:hover {
+                background-color:#00bbff;
+            }
+            .button_yellow:active {
                 position:relative;
                 top:1px;
             }
