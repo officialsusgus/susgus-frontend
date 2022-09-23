@@ -30,8 +30,8 @@
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleTheme();"></span><br>
             <br><a id="food">Väntar på skript...</a>
-            <br><img id="food_image" src="https://i.imgur.com/VtuFTL3.gif"></img>
-            <br><a id="generator">Genererar/hämtar bild på skolmaten<br>Det här kan ta upp till 1 minut</a>
+            <br><img id="food_image"></img>
+            <br><a id="generator">Väntar på skript...</a>
             <br><br><a href="/" class="button_blue"><i class="fa-solid fa-house"></i> Gå hem</a>&nbsp;&nbsp;&nbsp;<a onclick="reloadSchoolFood();" class="button_yellow"><i class="fa-solid fa-rotate"></i> Ladda om</a>
         </p>
         <style>
@@ -172,6 +172,8 @@
             setInterval(animationEngine, 500);
             function disabled() {};
             function reloadSchoolFood() {
+                $("#food_image").attr("src", "https://i.imgur.com/VtuFTL3.gif");
+                $("#generator").text("Bild genereras/hämtas, var god vänta.");
                 $("#food").text("Var god vänta, hämtar skolmat från servern...");
                 $.getJSON("https://susgusapi.azurewebsites.net/Misc/schoolFood", function(data) {
                     if (data.alternative == "Ledigt") {
