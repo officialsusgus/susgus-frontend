@@ -180,10 +180,9 @@
                       $("#food").html(data.food + "<br>" + data.alternative);
                     };
                 });
-                $.get("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage", function(data) {
-                    $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
-                    $("#generator").text("AI-genererad bild på skolmaten (BETA)");
-                });
+                $.get("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
+                $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
+                $("#generator").text("AI-genererad bild på skolmaten (BETA)");
             };
             reloadSchoolFood();
         </script>
