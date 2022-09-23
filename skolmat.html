@@ -180,8 +180,8 @@
                       $("#food").html(data.food + "<br>" + data.alternative);
                     };
                 });
-                $.getJSON("https://susgusapi.azurewebsites.net/Misc/schoolFoodImage", function(data) {
-                    $("#food_image").attr("src", data);
+                $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage", function(data) {
+                    $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
                     $("#generator").text("AI-genererad bild på skolmaten (BETA)");
                 });
             };
