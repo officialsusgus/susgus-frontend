@@ -185,6 +185,7 @@
                 await new Promise(r => setTimeout(r, 2000));
                 $.get("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
                 $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
+                await new Promise(r => setTimeout(r, 1000));
                 $("#generator").text("AI-genererad bild på skolmaten (BETA)");
             };
             reloadSchoolFood();
