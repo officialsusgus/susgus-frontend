@@ -174,7 +174,7 @@
             async function reloadSchoolFood() {
                 $("#food_image").attr("src", "https://i.imgur.com/VtuFTL3.gif?random=" + Math.random());
                 $("#food").text("Var god vänta, hämtar skolmat från servern...");
-                $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFood", function(data) {
+                $.getJSON("https://susgusapi.azurewebsites.net/Misc/schoolFood", function(data) {
                     if (data.alternative == "Ledigt") {
                       $("#food").text(data.food);
                     } else {
