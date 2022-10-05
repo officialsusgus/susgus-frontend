@@ -185,7 +185,6 @@
             function changeSusState() {
                 $("#sessioncounter").show();
                 $("#sessionclicks").show();
-                $("#worldclicks").text("Registrerar klick på servern, var god vänta...");
                 var clicks = parseInt(localStorage.getItem("clickcount"));
                 var clicks = clicks + 1;
                 $.getJSON("https://susgusapi.azurewebsites.net/Misc/addClick", function(data) {
