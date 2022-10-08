@@ -127,9 +127,31 @@
         </style>
         <script>
             document.addEventListener("contextmenu", event => event.preventDefault());
+            var kindasus = "https://cdn.discordapp.com/emojis/865333543193280522.png";
+            var susaf = "https://cdn.discordapp.com/emojis/938899403161362503.png";
             // Sommar Edition: var themes = {"main": {"background": "https://i.imgur.com/DsKY2ej.jpg", "icon": "☀️"}, "secondary": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg", "icon": "🏬"}};
             var themes = {"main": {"background": "https://i.imgur.com/1KUSvqD.jpg", "icon": "🍁"}, "secondary": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg", "icon": "🏬"}};
             var zero = 0;
+            document.head = document.head || document.getElementsByTagName("head")[0];
+            function changeFavicon(src) {
+                var link = document.createElement("link"),
+                oldLink = document.getElementById("dynamic-favicon");
+                link.id = "dynamic-favicon";
+                link.rel = "shortcut icon";
+                link.href = src;
+                if (oldLink) {
+                    document.head.removeChild(oldLink);
+                };
+                document.head.appendChild(link);
+            };
+            if(localStorage.getItem("susState") == null) {
+                localStorage.setItem("susState", "kindasus")
+                changeFavicon(kindasus);
+            } else if(localStorage.getItem("susState") == "kindasus") {
+                changeFavicon(kindasus);
+            } else if(localStorage.getItem("susState") == "susaf") {
+                changeFavicon(susaf);
+            };
             function toggleTheme() {
                 if(localStorage.getItem("theme") == "main") {
                     localStorage.setItem("theme", "secondary");
