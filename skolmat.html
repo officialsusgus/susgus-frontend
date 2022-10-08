@@ -145,7 +145,7 @@
                 document.head.appendChild(link);
             };
             if(localStorage.getItem("susState") == null) {
-                localStorage.setItem("susState", "kindasus")
+                localStorage.setItem("susState", "kindasus");
                 changeFavicon(kindasus);
             } else if(localStorage.getItem("susState") == "kindasus") {
                 changeFavicon(kindasus);
