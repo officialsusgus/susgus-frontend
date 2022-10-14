@@ -28,7 +28,7 @@
         <div id="babasbmsgx" style="visibility: visible !important;">Stäng av annonsblockerare och skriptblockerare</div>
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleTheme();"></span><br>
-            <br<img id="main" src="https://img.shields.io/badge/Huvudr%C3%A4tt-L%C3%A4ser%20in...-blue"></img><img id="alternative" src="https://img.shields.io/badge/Alternativr%C3%A4tt-L%C3%A4ser%20in...-red"></img>
+            <br><img id="main" src="https://img.shields.io/badge/Huvudr%C3%A4tt-L%C3%A4ser%20in...-blue"></img><img id="alternative" src="https://img.shields.io/badge/Alternativr%C3%A4tt-L%C3%A4ser%20in...-red"></img>
             <br><img id="food_image"></img>
             <br><a id="generator">AI-genererad bild på skolmaten (BETA)</a>
             <br><br><a href="/" class="button_blue"><i class="fa-solid fa-house"></i> Gå hem</a>&nbsp;&nbsp;&nbsp;<a onclick="reloadSchoolFood();" class="button_yellow"><i class="fa-solid fa-rotate"></i> Ladda om</a>
@@ -197,9 +197,11 @@
                 $("#food").text("Var god vänta, hämtar skolmat från servern...");
                 $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFood", function(data) {
                     if (data.alternative == "Ledigt") {
-                      $("#food").text(data.food);
+                      $("#main").attr("src", "https://img.shields.io/badge/Huvudr%C3%A4tt-" + data.food + "-blue");
+                      $("#alternative").attr("src", "https://img.shields.io/badge/Alternativrätt-" + data.food + "-red");
                     } else {
-                      $("#food").html(data.food + "<br>" + data.alternative);
+                      $("#main").attr("src", "https://img.shields.io/badge/Huvudr%C3%A4tt-" + data.food + "-blue");
+                      $("#alternative").attr("src", "https://img.shields.io/badge/Alternativrätt-" + data.alternative + "-red");
                     };
                 });
                 await new Promise(r => setTimeout(r, 2000));
