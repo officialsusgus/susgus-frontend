@@ -9,7 +9,7 @@ sv_SE = {
     "heading": "Se skolmaten.",
     "description": "Med Sus Gus kan du se skolmaten som serveras på din skola med advancerad AI-teknik som visualiserar skolmaten.",
     "main_button": "Se skolmaten",
-    "secondary_button": "Andra funktioner"
+    "secondary_button": "Annat"
 }
 en_UK = {
     "title": "English (United Kingdom)",
