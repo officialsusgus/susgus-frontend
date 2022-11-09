@@ -207,7 +207,6 @@
                       $("#alternative").attr("src", "https://img.shields.io/badge/Alternativrätt-" + data.alternative + "-red?style=for-the-badge");
                     };
                 });
-                await new Promise(r => setTimeout(r, 2000));
                 $.get("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
                 $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
                 $("#food_image").css("height", "256");
