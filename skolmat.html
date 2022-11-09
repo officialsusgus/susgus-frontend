@@ -208,6 +208,7 @@
                     };
                 });
                 $.get("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
+                await new Promise(r => setTimeout(r, 1000));
                 $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
                 await new Promise(r => setTimeout(r, 1000));
                 $("#food_image").css("height", "256");
