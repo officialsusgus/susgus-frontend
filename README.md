@@ -5,4 +5,4 @@ Se skolmaten! Med det unika konceptet [susgus.se](https://susgus.se) kan du se m
  - Se skolmaten som serveras i din skola.
  - Se en AI-genererad bild på skolmaten.
  
-![Skärmbild](https://github.com/ItzExotical/susgus.se/blob/9801a465785e64ef20c6e6e14ddecca7a2d38650/assets/img/screenshot.png)
+![Skärmbild](https://user-images.githubusercontent.com/93738720/214912960-5654404e-b514-4370-a121-3bdaf47905ae.png)
