@@ -6715,6 +6715,10 @@ textarea.form-control.is-invalid {
   height: 100%;
 }
 
+.max-h-5 {
+  max-height: 1.25rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -6854,6 +6858,11 @@ textarea.form-control.is-invalid {
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
+}
+
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 .bg-base-100 {
