@@ -1,3 +1,4 @@
+// This file contains all the necessary code that makes the frontend on susgus.se function.
 sv_SE = {
     "title": "Svenska (Sverige)",
     "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sweden_flag_orb_icon.svg/1200px-Sweden_flag_orb_icon.svg.png",
