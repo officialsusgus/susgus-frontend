@@ -9,12 +9,12 @@
         <meta property="og:url" content="https://susgus.se/">
         <meta property="og:title" content="Sus Gus - Se skolmaten">
         <meta property="og:description" content="Välkommen till Sus Gus, här kan du bland annat se dagens skolmat.">
-        <meta property="og:image" content="https://cdn.discordapp.com/emojis/865333543193280522.png">
+        <meta property="og:image" content="assets/img/emoji.png">
         <meta property="twitter:card" content="summary_large_image">
         <meta property="twitter:url" content="https://susgus.se/">
         <meta property="twitter:title" content="Sus Gus - Se skolmaten">
         <meta property="twitter:description" content="Välkommen till Sus Gus, här kan du bland annat se dagens skolmat.">
-        <meta property="twitter:image" content="https://cdn.discordapp.com/emojis/865333543193280522.png">
+        <meta property="twitter:image" content="assets/img/emoji.png">
         <meta name="theme-color" content="#ab07a3">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
@@ -30,7 +30,7 @@
         <p id="textblock">
             <span id="name"><b>Sus Gus</b></span> <span id="emojislot" onclick="toggleTheme();"></span><br>
             <br>Schema för 9B - Linnéskolan
-            <br><img src="https://i.imgur.com/BR474GY.png"></img>
+            <br><img src="assets/img/schedule.png"></img>
             <br>susgus.se garanterar inte att informationen som visas stämmer.
             <br><br><a href="/" class="button_blue"><i class="fa-solid fa-house"></i> Gå hem</a>
         </p>
@@ -127,7 +127,8 @@
         <script>
             document.addEventListener("contextmenu", event => event.preventDefault());
             // Sommar Edition: var themes = {"main": {"background": "https://i.imgur.com/DsKY2ej.jpg", "icon": "☀️"}, "secondary": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg", "icon": "🏬"}};
-            var themes = {"main": {"background": "https://i.imgur.com/1KUSvqD.jpg", "icon": "🍁"}, "secondary": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg", "icon": "🏬"}};
+            // Höst Edition: var themes = {"main": {"background": "https://i.imgur.com/1KUSvqD.jpg", "icon": "🍁"}, "secondary": {"background": "https://whiteguidegreen.se/wp-content/uploads/2021/06/citygross_hyllie-3840x2880.jpg", "icon": "🏬"}};
+            var themes = {"main": {"background": "assets/img/winter.jpg", "icon": "❄️"}, "secondary": {"background": "assets/img/citygross.jpg", "icon": "🏬"}};
             var zero = 0;
             function toggleTheme() {
                 if(localStorage.getItem("theme") == "main") {
