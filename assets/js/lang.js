@@ -21,7 +21,7 @@ en_UK = {
     "countdowns": "Countdowns",
     "about": "About Sus Gus",
     "heading": "See the school food.",
-    "description": "With Sus Gus, you can see the food served in your school with advanced AI-technology to visualize the school food.",
+    "description": "With Sus Gus, you can see the food served in your school with advanced AI-technology that visualizes the school food.",
     "main_button": "See food",
     "secondary_button": "Other features"
 }
