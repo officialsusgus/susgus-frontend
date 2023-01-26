@@ -6633,10 +6633,6 @@ textarea.form-control.is-invalid {
   z-index: -1;
 }
 
-.-z-10 {
-  z-index: -10;
-}
-
 .m-auto {
   margin: auto;
 }
