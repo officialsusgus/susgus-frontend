@@ -6629,6 +6629,10 @@ textarea.form-control.is-invalid {
   z-index: 50;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -6713,10 +6717,6 @@ textarea.form-control.is-invalid {
 
 .h-full {
   height: 100%;
-}
-
-.max-h-5 {
-  max-height: 1.25rem;
 }
 
 .w-full {
@@ -6858,11 +6858,6 @@ textarea.form-control.is-invalid {
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
-}
-
-.bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 .bg-base-100 {
