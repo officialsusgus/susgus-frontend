@@ -1,84 +1,79 @@
 <!doctype html>
 <html class="scroll-smooth">
-    <head>
-        <link rel="shortcut icon" href="assets/img/emoji.png" type="image/x-icon">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="assets/css/main.css" rel="stylesheet">
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/fontawesome.js" crossorigin="anonymous"></script>
-        <script async src="assets/js/lang.js"></script>
-        <title>Hem | Sus Gus</title>
-    </head>
-    <body>
-        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full">
-            <div class="container flex flex-wrap justify-between items-center mx-auto">
-            <a href="https://susgus.se" class="flex items-center">
-                <img src="assets/img/emoji.png" class="mr-3 h-6 sm:h-9" alt="Sus Gus">
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sus Gus</span>
-            </a>
-            <div class="flex items-center md:order-2">
-                <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex justify-center items-center p-2 text-sm text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                <img id="lang_image" class="w-4 h-4 mr-1">
-                <div id="lang_text"></div>
-                </button>
-                <!-- Dropdown -->
-                <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700" id="language-dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 10px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
-                <ul class="py-1" role="none">
-                    <li onclick="changeLanguage();">
-                    <a class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
-                        <div class="inline-flex items-center">
-                        <img id="langmenu_image" class="w-4 h-4 mr-1">
-                        <div id="langmenu_text"></div>
-                        </div>
-                    </a>
-                    </li>
-                </ul>
-                </div>
-                <button data-collapse-toggle="mobile-menu-language-select" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-language-select" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-            </button>
-            </div>
-            <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-language-select">
-            <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page" id="home"></a>
-                </li>
-                <li>
-                <a href="/food" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="food"></a>
-                </li>
-                <li>
-                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="clicker"></a>
-                </li>
-                <li>
-                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="countdowns"></a>
-                </li>
-                <li>
-                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="about"></a>
-                </li>
-            </ul>
-            </div>
-            </div>
-        </nav>
-        <section class="flex bg-white dark:bg-gray-900 self-center h-screen">
-            <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-                <div class="mr-auto place-self-center lg:col-span-7">
-                    <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white" id="title"></h1>
-                    <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400" id="description"></p>
-                    <a href="/food" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        <div id="main_button"></div>&nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        <div id="secondary_button"></div>&nbsp;&nbsp;<i class="fa-solid fa-list"></i>
-                    </a> 
-                </div>
-                <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                    <img src="assets/img/food.svg">
-                </div>                
-            </div>
-        </section>
-        <script src="assets/js/tw-elements.min.js"></script>
-        <script src="assets/js/flowbite.js"></script>
-    </body>
+
+<head>
+	<link rel="shortcut icon" href="assets/img/emoji.png" type="image/x-icon">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="assets/css/main.css" rel="stylesheet">
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/fontawesome.js" crossorigin="anonymous"></script>
+	<script async src="assets/js/lang.js"></script>
+	<title>Hem | Sus Gus</title>
+</head>
+
+<body>
+	<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full">
+		<div class="container flex flex-wrap justify-between items-center mx-auto">
+			<a href="https://susgus.se" class="flex items-center"> <img src="assets/img/emoji.png" class="mr-3 h-6 sm:h-9" alt="Sus Gus"> <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sus Gus</span> </a>
+			<div class="flex items-center md:order-2">
+				<button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex justify-center items-center p-2 text-sm text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> <img id="lang_image" class="w-4 h-4 mr-1">
+					<div id="lang_text"></div>
+				</button>
+				<!-- Dropdown -->
+				<div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700" id="language-dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 10px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
+					<ul class="py-1" role="none">
+						<li onclick="changeLanguage();">
+							<a class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+								<div class="inline-flex items-center"> <img id="langmenu_image" class="w-4 h-4 mr-1">
+									<div id="langmenu_text"></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<button data-collapse-toggle="mobile-menu-language-select" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-language-select" aria-expanded="false"> <span class="sr-only">Open main menu</span>
+					<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+					</svg>
+				</button>
+			</div>
+			<div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-language-select">
+				<ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+					<li>
+						<a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page" id="home"></a>
+					</li>
+					<li>
+						<a href="/food" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="food"></a>
+					</li>
+					<li>
+						<a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="clicker"></a>
+					</li>
+					<li>
+						<a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="countdowns"></a>
+					</li>
+					<li>
+						<a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="about"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<section class="flex bg-white dark:bg-gray-900 self-center h-screen">
+		<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+			<div class="mr-auto place-self-center lg:col-span-7">
+				<h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white" id="title"></h1>
+				<p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400" id="description"></p>
+				<a href="/food" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+					<div id="main_button"></div>&nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i> </a>
+				<a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+					<div id="secondary_button"></div>&nbsp;&nbsp;<i class="fa-solid fa-list"></i> </a>
+			</div>
+			<div class="hidden lg:mt-0 lg:col-span-5 lg:flex"> <img src="assets/img/food.svg"> </div>
+		</div>
+	</section>
+	<script src="assets/js/tw-elements.min.js"></script>
+	<script src="assets/js/flowbite.js"></script>
+</body>
+
 </html>
