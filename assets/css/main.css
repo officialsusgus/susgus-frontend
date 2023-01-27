@@ -2809,25 +2809,25 @@ textarea.form-control.is-invalid {
 
 .bs-popover-bottom > .popover-arrow::before {
   top: 0;
-  border-width: 0 0.5rem 0.5rem 0.5rem;
+  border-width: 0 0.5rem 0.5rem;
   border-bottom-color: rgba(0, 0, 0, 0.25);
 }
 
 .bs-popover-auto[data-popper-placement^=bottom] > .popover-arrow::before {
   top: 0;
-  border-width: 0 0.5rem 0.5rem 0.5rem;
+  border-width: 0 0.5rem 0.5rem;
   border-bottom-color: rgba(0, 0, 0, 0.25);
 }
 
 .bs-popover-bottom > .popover-arrow::after {
   top: 1px;
-  border-width: 0 0.5rem 0.5rem 0.5rem;
+  border-width: 0 0.5rem 0.5rem;
   border-bottom-color: #fff;
 }
 
 .bs-popover-auto[data-popper-placement^=bottom] > .popover-arrow::after {
   top: 1px;
-  border-width: 0 0.5rem 0.5rem 0.5rem;
+  border-width: 0 0.5rem 0.5rem;
   border-bottom-color: #fff;
 }
 
@@ -2905,7 +2905,7 @@ textarea.form-control.is-invalid {
 }
 
 .popover-body {
-  padding: 1rem 1rem;
+  padding: 1rem;
   color: #212529;
 }
 
@@ -3300,7 +3300,7 @@ textarea.form-control.is-invalid {
 }
 
 .datepicker-date-controls {
-  padding: 10px 12px 0 12px;
+  padding: 10px 12px 0;
   display: flex;
   justify-content: space-between;
   color: rgba(0, 0, 0, 0.64);
@@ -3929,7 +3929,7 @@ textarea.form-control.is-invalid {
   flex: unset;
   height: -moz-fit-content;
   height: fit-content;
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0;
 }
 
 .stepper.stepper-mobile .stepper-step:not(:last-child) .stepper-head:after {
