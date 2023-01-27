@@ -84,11 +84,11 @@ function changeLanguage() {
 async function reloadSchoolFood() {
     $("#food_image").attr("src", "assets/img/loading.gif");
     if(localStorage.getItem("language") == "sv_SE") {
-        $("#main").text(en_UK["food_loading_title"]);
-        $("#alternative").text(en_UK["food_loading_subtitle"]);
-    } else {
         $("#main").text(sv_SE["food_loading_title"]);
         $("#alternative").text(sv_SE["food_loading_subtitle"]);
+    } else {
+        $("#main").text(en_UK["food_loading_title"]);
+        $("#alternative").text(en_UK["food_loading_subtitle"]);
     };
     $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFood", function(data) {
         if (data.alternative == "Ledigt") {
