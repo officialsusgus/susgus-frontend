@@ -1,4 +1,5 @@
 // This file contains all the necessary code that makes the frontend on susgus.se function.
+document.addEventListener("contextmenu", event => event.preventDefault());
 sv_SE = {
     "title": "Svenska (Sverige)",
     "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sweden_flag_orb_icon.svg/1200px-Sweden_flag_orb_icon.svg.png",
@@ -68,4 +69,21 @@ function changeLanguage() {
         localStorage.setItem("language", "en_UK");
         loadLanguage();
     };
+};
+async function reloadSchoolFood() {
+    $("#food_image").attr("src", "assets/img/loading.gif");
+    $("#main").text("Hämtar skolmat...");
+    $("#alternative").text("Var god vänta, detta kan ta en stund.");
+    $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFood", function(data) {
+        if (data.alternative == "Ledigt") {
+          $("#main").text(data.food);
+          $("#alternative").text(data.food);
+        } else {
+          $("#main").text(data.food);
+          $("#alternative").text(data.alternative);
+        };
+    });
+    $.get("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
+    await new Promise(r => setTimeout(r, 2000));
+    $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
 };
