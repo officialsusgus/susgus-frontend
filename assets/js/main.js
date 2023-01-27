@@ -60,7 +60,6 @@ function loadLanguage() {
         $("#langmenu_image").attr("src", sv_SE["flag"]);
     };
 };
-loadLanguage();
 function changeLanguage() {
     if(localStorage.getItem("language") == "en_UK") {
         localStorage.setItem("language", "sv_SE");
@@ -86,4 +85,10 @@ async function reloadSchoolFood() {
     $.get("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
     await new Promise(r => setTimeout(r, 2000));
     $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage?random=" + Math.random());
+};
+function executePageFunctions(page) {
+    loadLanguage();
+    if(page == "food") {
+        reloadSchoolFood();
+    };
 };
