@@ -51,8 +51,6 @@ function loadLanguage() {
         $("#lang_image").attr("src", sv_SE["flag"]);
         $("#langmenu_text").text(en_UK["title"]);
         $("#langmenu_image").attr("src", en_UK["flag"]);
-        $("#main").text(sv_SE["food_loading_title"]);
-        $("#alternative").text(sv_SE["food_loading_subtitle"]);
     } else {
         $("#home").text(en_UK["home"]);
         $("#food").text(en_UK["food"]);
@@ -68,8 +66,6 @@ function loadLanguage() {
         $("#lang_image").attr("src", en_UK["flag"]);
         $("#langmenu_text").text(sv_SE["title"]);
         $("#langmenu_image").attr("src", sv_SE["flag"]);
-        $("#main").text(en_UK["food_loading_title"]);
-        $("#alternative").text(en_UK["food_loading_subtitle"]);
     };
 };
 function changeLanguage() {
