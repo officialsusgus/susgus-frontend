@@ -88,11 +88,11 @@ async function reloadSchoolFood() {
     };
     $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFood", function(data) {
         if (data.alternative == "Ledigt") {
-          $("#main").text(data.food);
-          $("#alternative").text(data.food);
+          $("#main").text(data["data"]["main"]);
+          $("#alternative").text(data["data"]["alternative"]);
         } else {
-          $("#main").text(data.food);
-          $("#alternative").text(data.alternative);
+          $("#main").text(data["data"]["main"]);
+          $("#alternative").text(data["data"]["alternative"]);
         };
     });
     $.get("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
