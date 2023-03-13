@@ -86,7 +86,7 @@ async function reloadSchoolFood() {
         $("#main").text(en_UK["food_loading_title"]);
         $("#alternative").text(en_UK["food_loading_subtitle"]);
     };
-    $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFood", function(data) {
+    $.getJSON("https://susapi.emilioaliustic.repl.co/run", function(data) {
         if (data.alternative == "Ledigt") {
           $("#main").text(data["data"]["main"]);
           $("#alternative").text(data["data"]["alternative"]);
