@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/image-edge": "^1.0.0-27968280.9739e4d",
+    "nuxt": "^3.2.3",
+    "nuxt-icon": "^0.3.2"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.4.1",
+    "daisyui": "^2.51.3",
+    "flowbite": "^1.6.3"
+  }
+}
