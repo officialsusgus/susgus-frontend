@@ -1,11 +1,16 @@
 <template>
-    <div class="flex h-screen dark:bg-gray-900 sticky -z-[1]">
+	<div class="flex h-screen dark:bg-gray-900 sticky">
 		<div class="m-auto">
-			<img onclick="clicks += 1" src="/img/logo.png" />
-            <p v-if="clicks != 0">Antal klick: {{ clicks }}</p>
-		</div>
+		<button @click="addClick">
+			<img src="/img/logo.png" />
+		</button>
+		<p v-if="clicks != 0" class="text-center"><a class="text-gray-400 dark:text-white">Antal klick:</a> <a class="text-blue-500 font-bold">{{ clicks }}</a></p>
+	  </div>
 	</div>
 </template>
 <script setup lang="ts">
-	let clicks = 0;
+	let clicks = ref(0);
+	function addClick() {
+		clicks.value += 1;
+	};
 </script>

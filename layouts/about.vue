@@ -1,5 +1,5 @@
 <template>
     <Header />
-    <Hero />
+    <About />
     <Footer />
 </template>

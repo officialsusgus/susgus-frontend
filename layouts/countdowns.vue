@@ -1,5 +1,5 @@
 <template>
     <Header />
-    <Hero />
+    <Countdowns />
     <Footer />
 </template>
