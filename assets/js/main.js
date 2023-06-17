@@ -95,18 +95,19 @@ async function reloadSchoolFood() {
       $("#main").text(response.data.main);
       $("#alternative").text(response.data.alternative);
     }
+    const response = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
+    if response["free"] {
+         $("#food_image").attr("src", "assets/img/free.png");
+        return;
+    };
     await new Promise((resolve) => setTimeout(resolve, 2000));
     $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
   } catch (error) {
-    if (error.status === 5) {
-         $("#food_image").attr("src", "assets/img/free.png");
-    } else {
-        $("#food_image").attr("src", "assets/img/error.png");
-        $("#main").text("Ett fel inträffade: Programfel");
-        $("#alternative").text("Kunde inte hämta skolmatsdata.");
-    };
+    $("#food_image").attr("src", "assets/img/error.png");
+    $("#main").text("Ett fel inträffade: Programfel");
+    $("#alternative").text("Kunde inte hämta skolmatsdata.");
     return;
-  }
+  };
 };
 function executePageFunctions(page) {
     loadLanguage();
