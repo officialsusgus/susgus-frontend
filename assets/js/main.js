@@ -87,11 +87,6 @@ async function reloadSchoolFood() {
       $("#main").text(en_UK["food_loading_title"]);
       $("#alternative").text(en_UK["food_loading_subtitle"]);
     };
-    const request = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
-    if (request["free"]) {
-        $("#food_image").attr("src", "assets/img/free.png");
-        return;
-    };
     const response = await $.getJSON("https://susapi.emilioaliustic.repl.co/run");
     if (response.alternative === "Ledigt") {
       $("#main").text(response.data.main);
@@ -99,7 +94,12 @@ async function reloadSchoolFood() {
     } else {
       $("#main").text(response.data.main);
       $("#alternative").text(response.data.alternative);
-    }
+    };
+    const request = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
+    if (request["free"]) {
+        $("#food_image").attr("src", "assets/img/free.png");
+        return;
+    };
     await new Promise((resolve) => setTimeout(resolve, 2000));
     $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
   } catch (error) {
