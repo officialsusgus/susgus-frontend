@@ -78,26 +78,32 @@ function changeLanguage() {
     };
 };
 async function reloadSchoolFood() {
+  try {
     $("#food_image").attr("src", "assets/img/loading.gif");
-    if(localStorage.getItem("language") == "sv_SE") {
-        $("#main").text(sv_SE["food_loading_title"]);
-        $("#alternative").text(sv_SE["food_loading_subtitle"]);
+    if (localStorage.getItem("language") == "sv_SE") {
+      $("#main").text(sv_SE["food_loading_title"]);
+      $("#alternative").text(sv_SE["food_loading_subtitle"]);
     } else {
-        $("#main").text(en_UK["food_loading_title"]);
-        $("#alternative").text(en_UK["food_loading_subtitle"]);
-    };
-    $.getJSON("https://susapi.emilioaliustic.repl.co/run", function(data) {
-        if (data.alternative == "Ledigt") {
-          $("#main").text(data["data"]["main"]);
-          $("#alternative").text(data["data"]["alternative"]);
-        } else {
-          $("#main").text(data["data"]["main"]);
-          $("#alternative").text(data["data"]["alternative"]);
-        };
-    });
-    $.get("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
-    await new Promise(r => setTimeout(r, 2000));
+      $("#main").text(en_UK["food_loading_title"]);
+      $("#alternative").text(en_UK["food_loading_subtitle"]);
+    }
+    const response = await $.getJSON("https://susapi.emilioaliustic.repl.co/run");
+    if (response.alternative === "Ledigt") {
+      $("#main").text(response.data.main);
+      $("#alternative").text(response.data.alternative);
+    } else {
+      $("#main").text(response.data.main);
+      $("#alternative").text(response.data.alternative);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
+  } catch (error) {
+    $("#food_image").attr("src", "assets/img/error.png");
+    $("#main").text("Error occurred");
+    $("#alternative").text("Failed to load data");
+    console.error("An error occurred:", error);
+    return;
+  }
 };
 function executePageFunctions(page) {
     loadLanguage();
