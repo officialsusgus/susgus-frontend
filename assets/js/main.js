@@ -98,9 +98,13 @@ async function reloadSchoolFood() {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
   } catch (error) {
-    $("#food_image").attr("src", "assets/img/error.png");
-    $("#main").text("Ett fel inträffade: Programfel");
-    $("#alternative").text("Kunde inte hämta skolmatsdata.");
+    if (error.status === 404) {
+         $("#food_image").attr("src", "assets/img/free.png");
+    } else {
+        $("#food_image").attr("src", "assets/img/error.png");
+        $("#main").text("Ett fel inträffade: Programfel");
+        $("#alternative").text("Kunde inte hämta skolmatsdata.");
+    };
     return;
   }
 };
