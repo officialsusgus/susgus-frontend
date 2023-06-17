@@ -79,6 +79,11 @@ function changeLanguage() {
 };
 async function reloadSchoolFood() {
   try {
+    const request = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
+    if (request["free"]) {
+        $("#food_image").attr("src", "assets/img/free.png");
+        return;
+    };
     $("#food_image").attr("src", "assets/img/loading.gif");
     if (localStorage.getItem("language") == "sv_SE") {
       $("#main").text(sv_SE["food_loading_title"]);
@@ -87,7 +92,7 @@ async function reloadSchoolFood() {
       $("#main").text(en_UK["food_loading_title"]);
       $("#alternative").text(en_UK["food_loading_subtitle"]);
     }
-    let response = await $.getJSON("https://susapi.emilioaliustic.repl.co/run");
+    const response = await $.getJSON("https://susapi.emilioaliustic.repl.co/run");
     if (response.alternative === "Ledigt") {
       $("#main").text(response.data.main);
       $("#alternative").text(response.data.alternative);
@@ -95,18 +100,13 @@ async function reloadSchoolFood() {
       $("#main").text(response.data.main);
       $("#alternative").text(response.data.alternative);
     }
-    response = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
-    if response["free"] {
-         $("#food_image").attr("src", "assets/img/free.png");
-        return;
-    };
     await new Promise((resolve) => setTimeout(resolve, 2000));
     $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
   } catch (error) {
-    $("#food_image").attr("src", "assets/img/error.png");
-    $("#main").text("Ett fel inträffade: Programfel");
-    $("#alternative").text("Kunde inte hämta skolmatsdata.");
-    return;
+        $("#food_image").attr("src", "assets/img/error.png");
+        $("#main").text("Ett fel inträffade: Programfel");
+        $("#alternative").text("Kunde ej hämta skolmatsdata.");
+        return;
   };
 };
 function executePageFunctions(page) {
