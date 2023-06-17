@@ -99,9 +99,8 @@ async function reloadSchoolFood() {
     $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
   } catch (error) {
     $("#food_image").attr("src", "assets/img/error.png");
-    $("#main").text("Error occurred");
-    $("#alternative").text("Failed to load data");
-    console.error("An error occurred:", error);
+    $("#main").text("Ett fel inträffade: Programfel");
+    $("#alternative").text("Kunde inte hämta skolmatsdata.");
     return;
   }
 };
