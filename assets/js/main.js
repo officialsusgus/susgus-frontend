@@ -87,7 +87,7 @@ async function reloadSchoolFood() {
       $("#main").text(en_UK["food_loading_title"]);
       $("#alternative").text(en_UK["food_loading_subtitle"]);
     }
-    const response = await $.getJSON("https://susapi.emilioaliustic.repl.co/run");
+    let response = await $.getJSON("https://susapi.emilioaliustic.repl.co/run");
     if (response.alternative === "Ledigt") {
       $("#main").text(response.data.main);
       $("#alternative").text(response.data.alternative);
@@ -95,8 +95,8 @@ async function reloadSchoolFood() {
       $("#main").text(response.data.main);
       $("#alternative").text(response.data.alternative);
     }
-    const req = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
-    if req["free"] {
+    response = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
+    if response["free"] {
          $("#food_image").attr("src", "assets/img/free.png");
         return;
     };
