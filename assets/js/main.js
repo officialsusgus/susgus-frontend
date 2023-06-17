@@ -95,8 +95,8 @@ async function reloadSchoolFood() {
       $("#main").text(response.data.main);
       $("#alternative").text(response.data.alternative);
     }
-    const r = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
-    if r["free"] {
+    const req = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
+    if req["free"] {
          $("#food_image").attr("src", "assets/img/free.png");
         return;
     };
