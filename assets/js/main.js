@@ -88,7 +88,7 @@ async function reloadSchoolFood() {
       $("#alternative").text(en_UK["food_loading_subtitle"]);
     };
     const response = await $.getJSON("https://susapi.emilioaliustic.repl.co/run");
-    if (response.alternative === "Ledigt") {
+    if (response["free"]) {
       $("#main").text(response.data.main);
       $("#alternative").text(response.data.alternative);
     } else {
