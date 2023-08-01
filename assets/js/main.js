@@ -88,12 +88,12 @@ async function reloadSchoolFood() {
       $("#alternative").text(en_UK["food_loading_subtitle"]);
     };
     const response = await $.getJSON("https://susapi.emilioaliustic.repl.co/run");
-    if (response["free"]) {
-      $("#main").text(response.data.main);
-      $("#alternative").text(response.data.alternative);
+    if (response["data"]["free"]) {
+      $("#main").text("Njut av ledigheten!");
+      $("#alternative").text("Hittade ingen skolmatsdata.");
     } else {
-      $("#main").text(response.data.main);
-      $("#alternative").text(response.data.alternative);
+      $("#main").text(response["data"]["main"]);
+      $("#alternative").text(response["data"]["alternative"]);
     };
     const request = await $.getJSON("https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
     if (request["free"]) {
