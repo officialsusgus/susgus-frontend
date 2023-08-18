@@ -99,6 +99,9 @@ async function reloadSchoolFood() {
     if (request["free"]) {
         $("#food_image").attr("src", "assets/img/free.png");
         return;
+    } else if(request["error"]) {
+        $("#food_image").attr("src", "assets/img/error.png");
+        return;
     };
     await new Promise((resolve) => setTimeout(resolve, 2000));
     $("#food_image").attr("src", "https://susapi.emilioaliustic.repl.co/Misc/schoolFoodImage");
