@@ -80,6 +80,7 @@ function changeLanguage() {
 async function reloadSchoolFood() {
   try {
     $("#food_image").attr("src", "assets/img/loading.gif");
+    $("#errmsg").hide();
     if (localStorage.getItem("language") == "sv_SE") {
       $("#main").text(sv_SE["food_loading_title"]);
       $("#alternative").text(sv_SE["food_loading_subtitle"]);
@@ -101,6 +102,7 @@ async function reloadSchoolFood() {
         return;
     } else if(request["error"]) {
         $("#food_image").attr("src", "assets/img/error.png");
+        $("#errmsg").show();
         return;
     };
     await new Promise((resolve) => setTimeout(resolve, 2000));
